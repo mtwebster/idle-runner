@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<schemalist>
+  <schema id="org.webster.idlerunner" path="/org/webster/idlerunner/">
+    <key name="command-line" type="s">
+      <default>''</default>
+      <summary>What to command to run at idle</summary>
+    </key>
+  </schema>
+</schemalist>

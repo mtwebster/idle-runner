@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Idle Runner Configure
+Comment=Configure the command to execute with idle-runner
+Exec=python3 /usr/share/idle-runner/idle-runner-config.py
+Icon=system-run
+Type=Application
+Categories=GNOME;GTK;Settings;DesktopSettings;
+StartupNotify=false

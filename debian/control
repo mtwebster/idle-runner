@@ -19,6 +19,5 @@ Depends:
  gir1.2-gtk-3.0,
  dconf-gsettings-backend,
  ${misc:Depends},
- ${shlibs:Depends},
 Description: Executes a user-specified script when the session goes idle.
 

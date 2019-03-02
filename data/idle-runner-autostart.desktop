@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Idle Runner
+Comment=Execute something when the computer goes idle
+Exec=python3 /usr/share/idle-runner/idle-runner.py
+Type=Application
+StartupNotify=false
+X-GNOME-Autostart-Delay=5
+X-MATE-Autostart-Delay=5

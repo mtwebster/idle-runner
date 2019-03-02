@@ -1,0 +1,12 @@
+idle-runner: Run some script or command any time the session goes idle.
+
+
+build:
+
+meson builddir --prefix=/usr
+ninja -C builddir
+
+install:
+
+ninja -C builddir install
+

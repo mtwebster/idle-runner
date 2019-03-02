@@ -12,7 +12,7 @@ IDLE = 3
 
 class Main:
     def __init__(self):
-        # what
+        self.settings = Gio.Settings(schema_id="org.webster.idlerunner")
 
         try:
             self.proxy = Gio.DBusProxy.new_for_bus_sync(Gio.BusType.SESSION,
@@ -31,13 +31,16 @@ class Main:
 
     def on_proxy_signal(self, proxy, sender, signal, params, data=None):
         if signal == "StatusChanged":
-            if params[0] == 3:
+            if params[0] == IDLE:
                 self.run_script()
 
     def run_script(self):
-        print("Yay")
+        cmd = self.settings.get_string("command-line")
 
-
+        try:
+            success, out, error, estatus = GLib.spawn_command_line_sync(cmd)
+        except GLib.Error as e:
+            print(e.message)
 
 if __name__ == "__main__":
     setproctitle.setproctitle('idle-runner')
