@@ -5,8 +5,8 @@ install_data('org.webster.idlerunner.gschema.xml',
 meson.add_install_script('meson_install_schemas.py')
 
 install_data(
-    ['idle-runner-autostart.desktop'],
-    install_dir: '/etc/xdg/autostart'
+    ['idle-runner.service'],
+    install_dir: '/etc/systemd/user'
 )
 
 install_data(
