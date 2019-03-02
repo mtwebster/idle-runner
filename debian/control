@@ -9,6 +9,7 @@ Build-Depends:
  meson,
  python3
 Standards-Version: 3.9.6
+Homepage: https://github.com/mtwebster/idle-runner
 
 Package: idle-runner
 Section: x11
