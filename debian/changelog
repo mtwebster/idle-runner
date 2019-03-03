@@ -1,3 +1,10 @@
+idle-runner (0.2.0) unstable; urgency=medium
+
+  * Add functionality to run execute something when idle ends.
+  * Run commands asynchronously.
+
+ -- Michael Webster <miketwebster@gmail.com>  Sun, 03 Mar 2019 14:10:07 -0500
+
 idle-runner (0.1.0) unstable; urgency=medium
 
   * Initial release.
