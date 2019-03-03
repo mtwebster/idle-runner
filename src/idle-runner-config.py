@@ -75,30 +75,25 @@ class ConfigWindow:
         mtype = Gtk.MessageType.INFO
 
         try:
-            success, out, error, estatus = GLib.spawn_command_line_sync(cmd)
-
-            if out.decode() == "" and error.decode() == "":
-                message = "No output"
-            else:
-                message = "<tt>stdout:\n%s\n\nstderr:\n%s</tt>" % (out.decode(), error.decode())
+            success = GLib.spawn_command_line_async(cmd)
         except GLib.Error as e:
             message = e.message
             mtype = Gtk.MessageType.ERROR
 
-        report =  Gtk.MessageDialog(self.window,
-                                    Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
-                                    mtype,
-                                    Gtk.ButtonsType.OK,
-                                    None)
+            report =  Gtk.MessageDialog(self.window,
+                                        Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+                                        Gtk.MessageType.ERROR,
+                                        Gtk.ButtonsType.OK,
+                                        None)
 
-        label = Gtk.Label()
-        label.set_markup(message)
-        label.show()
+            label = Gtk.Label()
+            label.set_markup(message)
+            label.show()
 
-        report.get_message_area().pack_start(label, True, True, 0)
+            report.get_message_area().pack_start(label, True, True, 0)
 
-        report.run()  
-        report.destroy()
+            report.run()  
+            report.destroy()
 
     def on_entry_changed(self, entry, button):
         cmd = entry.get_text()

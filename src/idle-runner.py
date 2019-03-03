@@ -41,7 +41,7 @@ class Main:
         cmd = self.settings.get_string(key)
 
         try:
-            success, out, error, estatus = GLib.spawn_command_line_sync(cmd)
+            success = GLib.spawn_command_line_async(cmd)
         except GLib.Error as e:
             print(e.message)
 
