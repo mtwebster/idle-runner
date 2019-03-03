@@ -33,10 +33,12 @@ class Main:
     def on_presence_proxy_signal(self, proxy, sender, signal, params, data=None):
         if signal == "StatusChanged":
             if params[0] == IDLE:
-                self.run_script()
+                self.run_script("command-line")
+            else:
+                self.run_script("unidle-command-line")
 
-    def run_script(self):
-        cmd = self.settings.get_string("command-line")
+    def run_script(self, key):
+        cmd = self.settings.get_string(key)
 
         try:
             success, out, error, estatus = GLib.spawn_command_line_sync(cmd)

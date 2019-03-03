@@ -5,5 +5,9 @@
       <default>''</default>
       <summary>What to command to run at idle</summary>
     </key>
+    <key name="unidle-command-line" type="s">
+      <default>''</default>
+      <summary>What to command to run when idle stops</summary>
+    </key>
   </schema>
 </schemalist>

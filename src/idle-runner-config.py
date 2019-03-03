@@ -27,15 +27,29 @@ class ConfigWindow:
         self.cancel_button = self.builder.get_object("cancel_button")
         self.cancel_button.connect("clicked", self.on_cancel_clicked)
 
-        self.run_button = self.builder.get_object("run_button")
-        self.run_button.connect("clicked", self.on_run_clicked)
-
-        self.entry = self.builder.get_object("entry")
+        # Enter idle controls
+        self.idle_entry = self.builder.get_object("idle_entry")
+        self.idle_run_button = self.builder.get_object("idle_run_button")
 
         cmd = self.settings.get_string("command-line")
-        self.entry.set_text(cmd)
+        self.idle_entry.set_text(cmd)
+        self.idle_entry.connect("changed", self.on_entry_changed, self.idle_run_button)
 
-        self.entry.connect("changed", self.on_entry_changed)
+        self.idle_run_button.connect("clicked", self.on_run_clicked, self.idle_entry)
+
+        self.on_entry_changed(self.idle_entry, self.idle_run_button)
+
+        # Leave idle controls
+        self.unidle_entry = self.builder.get_object("unidle_entry")
+        self.unidle_run_button = self.builder.get_object("unidle_run_button")
+
+        cmd = self.settings.get_string("unidle-command-line")
+        self.unidle_entry.set_text(cmd)
+        self.unidle_entry.connect("changed", self.on_entry_changed, self.unidle_run_button)
+
+        self.unidle_run_button.connect("clicked", self.on_run_clicked, self.unidle_entry)
+
+        self.on_entry_changed(self.unidle_entry, self.unidle_run_button)
 
         self.window.present()
 
@@ -46,14 +60,16 @@ class ConfigWindow:
         Gtk.main_quit()
 
     def on_save_clicked(self, button, data=None):
-        cmd = self.entry.get_text()
-
+        cmd = self.idle_entry.get_text()
         self.settings.set_string("command-line", cmd)
+
+        cmd = self.unidle_entry.get_text()
+        self.settings.set_string("unidle-command-line", cmd)
 
         Gtk.main_quit()
 
-    def on_run_clicked(self, button, data=None):
-        cmd = self.entry.get_text()
+    def on_run_clicked(self, button, entry):
+        cmd = entry.get_text()
 
         message = None
         mtype = Gtk.MessageType.INFO
@@ -84,10 +100,10 @@ class ConfigWindow:
         report.run()  
         report.destroy()
 
-    def on_entry_changed(self, entry, data=None):
-        cmd = self.entry.get_text()
+    def on_entry_changed(self, entry, button):
+        cmd = entry.get_text()
 
-        self.run_button.set_sensitive(cmd.strip() != "")
+        button.set_sensitive(cmd.strip() != "")
 
 if __name__ == "__main__":
     setproctitle.setproctitle("idle-runner-config")
