@@ -6,7 +6,7 @@
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Idle Runner</property>
     <property name="default_width">450</property>
-    <property name="default_height">100</property>
+    <property name="default_height">400</property>
     <property name="icon_name">system-run</property>
     <child>
       <placeholder/>
@@ -106,7 +106,7 @@
               <object class="GtkEntry" id="unidle_entry">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="tooltip_text" translatable="yes">Enter command line to execute when the computer goes idle.</property>
+                <property name="tooltip_text" translatable="yes">Enter command line to execute when the computer leaves idle.</property>
                 <property name="hexpand">True</property>
               </object>
               <packing>
@@ -134,6 +134,138 @@
             <property name="expand">False</property>
             <property name="fill">False</property>
             <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="padding">6</property>
+            <property name="position">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Command to execute before sleeping</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="padding">6</property>
+            <property name="position">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="vexpand">False</property>
+            <property name="border_width">8</property>
+            <property name="spacing">6</property>
+            <child>
+              <object class="GtkEntry" id="sleep_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Enter command line to execute before the computer goes to sleep.</property>
+                <property name="hexpand">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="sleep_run_button">
+                <property name="label" translatable="yes">Run now</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Test the command line.</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">7</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="padding">6</property>
+            <property name="position">8</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Command to execute after waking</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="padding">6</property>
+            <property name="position">9</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="vexpand">False</property>
+            <property name="border_width">8</property>
+            <property name="spacing">6</property>
+            <child>
+              <object class="GtkEntry" id="wake_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Enter command line to execute after the computer wakes from sleep.</property>
+                <property name="hexpand">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="wake_run_button">
+                <property name="label" translatable="yes">Run now</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Test the command line.</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">10</property>
           </packing>
         </child>
         <child>
@@ -170,7 +302,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">5</property>
+            <property name="position">11</property>
           </packing>
         </child>
       </object>

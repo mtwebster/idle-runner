@@ -1,0 +1,6 @@
+debian/tmp
+debian/idle-runner
+debian/.debhelper
+debian/debhelper-build-stamp
+debian/files
+debian/idle-runner.substvars

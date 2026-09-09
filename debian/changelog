@@ -1,3 +1,10 @@
+idle-runner (0.3.0) unstable; urgency=medium
+
+  * Add commands to run when going to sleep and waking up.
+  * Modernize the debian packaging.
+
+ -- Michael Webster <miketwebster@gmail.com>  Tue, 08 Sep 2026 19:23:49 -0400
+
 idle-runner (0.2.0) unstable; urgency=medium
 
   * Add functionality to run execute something when idle ends.

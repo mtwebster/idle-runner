@@ -9,5 +9,13 @@
       <default>''</default>
       <summary>What to command to run when idle stops</summary>
     </key>
+    <key name="sleep-command-line" type="s">
+      <default>''</default>
+      <summary>What command to run before going to sleep</summary>
+    </key>
+    <key name="wake-command-line" type="s">
+      <default>''</default>
+      <summary>What command to run after waking from sleep</summary>
+    </key>
   </schema>
 </schemalist>
